@@ -5,12 +5,16 @@ This repository hosts the 120-hour project I have carried out throughout my [Dat
 ## Objectives
 The project addresses the [2nd task](https://dcase.community/challenge2022/task-low-complexity-acoustic-scene-classification) of the [DCASE2022 Challenge](https://dcase.community/challenge2022/index), entitled *Unsupervised Anomalous Sound Detection for Machine Condition Monitoring Applying Domain Generalization Techniques*. 
 
+
 ## General strategy
 
 
 ## Data 
 During this training project, we only used the *development dataset* that can be downloaded [here](https://zenodo.org/record/6355122#.ZAs2YR-ZOUk).  Additional data are available on the [challenge webpage](https://dcase.community/challenge2022/task-low-complexity-acoustic-scene-classification).  
 The *development dataset* contains 25200 single-channel 10-second audio clips recorded from 7 machine types (*fan*, *gearbox*, *bearing*, *slider*, *toy car*, *toy train*, and *valve*). Each recording includes both the sounds of the target machine and environmental sounds. 
+
+
+<img src="/images/dev_dataset.png" alt="Structure of the development dataset" style="height: 100px; width:100px;"/>
 
 ## Notebooks  
 All notebooks in this repo are mine and are organized as follows :
