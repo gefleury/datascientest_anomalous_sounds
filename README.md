@@ -48,6 +48,11 @@ All notebooks in this repo are mine and are organized as follows&nbsp;:
 
 ## Main conclusions
 
+## Reports (in french, written my co-learners)
+Project report : [ASD_report.pdf](reports/ASD_report.pdf)  
+Defense slides : [ASD_slides.pdf](reports/ASD_slides.pdf)  
+
+
 
 
 
