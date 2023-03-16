@@ -21,7 +21,7 @@ The architecture of the dataset is shown below. Data are not uploaded on this re
 </figure>
 
 ## General strategy
-Each audio clip is converted to a (mel-)spectrogram using the [librosa](https://librosa.org/doc/latest/index.html#) python package.  
+Each audio clip is converted to a (mel-)spectrogram using the [librosa](https://librosa.org/doc/latest/index.html#) python package, and stored in the folder `data/features/`. 
 
 Then, we first address the supervised classification problem, using the test set containing both normal and anomalous (labeled) sounds. Obviously, this task does not follow the challenge rules but is useful to get a first benchmark (and for pedagogical reasons too, the main goal for us was to learn). For that purpose, we use different dimensionality reduction techniques on the spectrograms and then test various standard machine learning techniques (KNN, SVM, random forests, gradient boosting trees) as well as basic neural networks.
 
@@ -34,17 +34,17 @@ Note that my co-learners, Quentin and Sylvain, have also tried alternatives anom
 ## Notebooks  
 All notebooks in this repo are mine and are organized as follows&nbsp;:
 - **Data exploration&nbsp;:**
-    - `ASD_dataviz.ipynb` : To analyse the dataset architecture, listen to sound clips, visualize and compare various spectrograms  of sounds.
+    - [`ASD_dataviz.ipynb`](notebooks/ASD_dataviz.ipynb) : To analyse the dataset architecture, listen to sound clips, visualize and compare various spectrograms  of sounds.
 - **Supervised classification of normal/anomalous sounds**&nbsp;:
-    - `ASD_supervised_clf_sounds.ipynb` : Various techniques of dimensionality reduction and various classifiers (KNN, SVM, random forests, gradient boosting trees)  have been tested.
-    - `ASD_supervised_clf_sounds_DL.ipynb` : Same with basic neural networks. Results are very bad. The notebook has been written at the early stage of the training, with no hindsight on deep learning techniques, and can be mostly ignored.
+    - [`ASD_supervised_clf_sounds.ipynb`](notebooks/ASD_supervised_clf_sounds.ipynb) : Various techniques of dimensionality reduction and various classifiers (KNN, SVM, random forests, gradient boosting trees)  have been tested.
+    - [`ASD_supervised_clf_sounds_DL.ipynb`](notebooks/ASD_supervised_clf_sounds_DL.ipynb) : Same with basic neural networks. Results are very bad. The notebook has been written at the early stage of the training, with no hindsight on deep learning techniques, and can be mostly ignored.
 - **Supervised classification of the machine types**&nbsp;:
-    - `ASD_supervised_clf_machines.ipynb` : Classification is done with gradient boosting trees (xgboost) after dimensionality reduction (PCA). Quick and dirty notebook written to check that deep learning techniques are more efficient for this task (but the comparison has not been pushed to its fullest conclusion).
+    - [`ASD_supervised_clf_machines.ipynb`](notebooks/ASD_supervised_clf_machines.ipynb) : Classification is done with gradient boosting trees (xgboost) after dimensionality reduction (PCA). Quick and dirty notebook written to check that deep learning techniques are more efficient for this task (but the comparison has not been pushed to its fullest conclusion).
 - **Unsupervised classification of normal/anomalous sounds with deep learning techniques&nbsp;:**
-    - `ASD_clf_sounds_DL_from_machine_clf.ipynb` : Various models have been tested and trained to perform first a supervised classification task of machine type. Then, the idea is that only sounds whose machine type has been well classified (with a high enough score) are classified as normal.
-    - `ASD_clf_sounds_DL_from_section_clf.ipynb` : Same by pretraining a neural network to classify the section (0, 1, and 2), machine per machine, instead of the machine type.
-    - `ASD_clf_sounds_FaceNet_machine.ipynb` : Spectrograms are embedded into vectors of length 128 using a FaceNet approach on the machine type. Then a random forest classifier is used to classify the machine type. The normal/anomalous class is deduced from these classification scores.
-    - `ASD_clf_sounds_FaceNet_section.ipynb` : Same by using a FaceNet approach on the section (0, 1, and 2), machine per machine, instead of the machine type.
+    - [`ASD_clf_sounds_DL_from_machine_clf.ipynb`](notebooks/ASD_clf_sounds_DL_from_machine_clf.ipynb) : Various models have been tested and trained to perform first a supervised classification task of machine type. Then, the idea is that only sounds whose machine type has been well classified (with a high enough score) are classified as normal.
+    - [`ASD_clf_sounds_DL_from_section_clf.ipynb`](notebooks/ASD_clf_sounds_DL_from_section_clf.ipynb) : Same by pretraining a neural network to classify the section (0, 1, and 2), machine per machine, instead of the machine type.
+    - [`ASD_clf_sounds_FaceNet_machine.ipynb`](notebooks/ASD_clf_sounds_FaceNet_machine.ipynb) : Spectrograms are embedded into vectors of length 128 using a FaceNet approach on the machine type. Then a random forest classifier is used to classify the machine type. The normal/anomalous class is deduced from these classification scores.
+    - [`ASD_clf_sounds_FaceNet_section.ipynb`](notebooks/ASD_clf_sounds_FaceNet_section.ipynb) : Same by using a FaceNet approach on the section (0, 1, and 2), machine per machine, instead of the machine type.
 
 ## Main conclusions
 The *supervised* classification task of normal/anomalous sounds gives AUC scores in the range $[0.8, 0.98]$ depending on the machine type, with simple machine learning methods. Those scores could be likely improved with model optimization or with the use of more evolved neural networks (only basic ones have been tested for practicing). Note that the *supervised* classification task of the machine types gives better results.   
