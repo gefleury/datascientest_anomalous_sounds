@@ -35,10 +35,10 @@ Note that my co-learners, Quentin and Sylvain, have also tried alternatives anom
 All notebooks in this repo are mine and are organized as follows&nbsp;:
 - **Data exploration&nbsp;:**
     - `ASD_dataviz.ipynb` : To analyse the dataset architecture, listen to sound clips, visualize and compare various spectrograms  of sounds.
-- **Supervised classification of normal/anomalous sounds using the (labeled) test subset of the development dataset**&nbsp;:
+- **Supervised classification of normal/anomalous sounds**&nbsp;:
     - `ASD_supervised_clf_sounds.ipynb` : Various techniques of dimensionality reduction and various classifiers (KNN, SVM, random forests, gradient boosting trees)  have been tested.
     - `ASD_supervised_clf_sounds_DL.ipynb` : Same with basic neural networks. Results are very bad. The notebook has been written at the early stage of the training, with no hindsight on deep learning techniques, and can be mostly ignored.
-- **Supervised classification of the type of machine from which sounds originate**&nbsp;:
+- **Supervised classification of the machine types**&nbsp;:
     - `ASD_supervised_clf_machines.ipynb` : Classification is done with gradient boosting trees (xgboost) after dimensionality reduction (PCA). Quick and dirty notebook written to check that deep learning techniques are more efficient for this task (but the comparison has not been pushed to its fullest conclusion).
 - **Unsupervised classification of normal/anomalous sounds with deep learning techniques&nbsp;:**
     - `ASD_clf_sounds_DL_from_machine_clf.ipynb` : Various models have been tested and trained to perform first a supervised classification task of machine type. Then, the idea is that only sounds whose machine type has been well classified (with a high enough score) are classified as normal.
@@ -47,6 +47,10 @@ All notebooks in this repo are mine and are organized as follows&nbsp;:
     - `ASD_clf_sounds_FaceNet_section.ipynb` : Same by using a FaceNet approach on the section (0, 1, and 2), machine per machine, instead of the machine type.
 
 ## Main conclusions
+The *supervised* classification task of normal/anomalous sounds gives AUC scores in the range $[0.8, 0.98]$ depending on the machine type, with simple machine learning methods. Those scores could be likely improved with model optimization or with the use of more evolved neural networks (only basic ones have been tested for practicing). Note that the *supervised* classification task of the machine types gives better results.   
+
+The *unsupervised* classification task of normal/anomalous sounds is (as expected) much more difficult and we find AUC scores in the range $[0.5, 0.8]$ depending on the machine type. The problem is hindered by *(i)* the presence of noise in the recordings, so as it is often difficult to hear (or to see in a spectrogram) whether a sound is normal or not, and *(ii)* the existence of two (so-called source and target) domains. There is obviously room for improvement, from the pre-processing step (use of filters, of phase spectrograms in addition to amplitude spectograms, tuning of spectrogram parameters, ...) to the optimization of deep learning methods (use of transfer learning, of RNNs, test with other loss functions, ...). Before running long calculations, the methodology itself could be questioned : for instance, it might be interesting to train a model to classify normal/anomalous sounds by using sounds from other machines as anomalous sounds.  
+$\rightarrow$ Visit the [challenge results webpage](https://dcase.community/challenge2022/task-low-complexity-acoustic-scene-classification-results) for more ideas.
 
 ## Reports (in french, written my co-learners)
 Project report : [ASD_report.pdf](reports/ASD_report.pdf)  
