@@ -15,6 +15,7 @@ The *development dataset* contains **25200 single-channel 10-second audio clips*
 - a *source domain* and a *target domain*. They correspond to two separated subgroups of *attributes* in each section.
 
 The architecture of the dataset is shown below. Data are not uploaded on this repo but for clarity sake, the data folder structure is shown in the folder `data/data/`. 
+
 <figure>
     <img src="/images/dev_dataset.png" alt="Structure of the development dataset" style="height: 350px;"/>
     <figcaption>Structure of the <i>development dataset</i>. Figure adapted from the <a target="_blank" href="https://dcase.community/challenge2022/task-low-complexity-acoustic-scene-classification">challenge webpage</a>.</figcaption>
