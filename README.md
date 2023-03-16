@@ -51,7 +51,8 @@ All notebooks in this repo are mine and are organized as follows&nbsp;:
 The *supervised* classification task of normal/anomalous sounds gives AUC scores in the range $[0.8, 0.98]$ depending on the machine type, with simple machine learning methods. Those scores could be likely improved with model optimization or with the use of more evolved neural networks (only basic ones have been tested for practicing). Note that the *supervised* classification task of the machine types gives better results.   
 
 The *unsupervised* classification task of normal/anomalous sounds is (as expected) much more difficult and we find AUC scores in the range $[0.5, 0.8]$ depending on the machine type. The problem is hindered by *(i)* the presence of noise in the recordings, so as it is often difficult to hear (or to see in a spectrogram) whether a sound is normal or not, and *(ii)* the existence of two (so-called source and target) domains. There is obviously room for improvement, from the pre-processing step (use of filters, of phase spectrograms in addition to amplitude spectograms, tuning of spectrogram parameters, ...) to the optimization of deep learning methods (use of transfer learning, of RNNs, test with other loss functions, ...). Before running long calculations, the methodology itself could be questioned : for instance, it might be interesting to train a model to classify normal/anomalous sounds by using sounds from other machines as anomalous sounds.  
-$\rightarrow$ Visit the [challenge results webpage](https://dcase.community/challenge2022/task-low-complexity-acoustic-scene-classification-results) for more ideas.
+
+:trophy: Visit the [challenge results webpage](https://dcase.community/challenge2022/task-low-complexity-acoustic-scene-classification-results) for more ideas.
 
 ## Reports (in french, written my co-learners)
 Project report : [ASD_report.pdf](reports/ASD_report.pdf)  
