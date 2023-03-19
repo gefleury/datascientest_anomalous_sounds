@@ -22,7 +22,7 @@ The architecture of the dataset is shown below. Data are not uploaded on this re
 </figure>
 
 ## General strategy
-Each audio clip is converted to a (mel-)spectrogram using the [librosa](https://librosa.org/doc/latest/index.html#) python package, and stored in the folder `data/features/`. 
+Each audio clip is converted to a (mel-)spectrogram using the [librosa](https://librosa.org/doc/latest/index.html#) python package. They are either computed on the fly in the notebooks or pre-computed in the notebook [`ASD_preprocessing_melspectro313x128.ipynb`](notebooks/ASD_preprocessing_melspectro313x128.ipynb), stored in the folder `data/Features/melspec_313_128` and loaded in the notebooks dedicated to the unsupervised task.
 
 Then, we first address the supervised classification problem, using the test set containing both normal and anomalous (labeled) sounds. Obviously, this task does not follow the challenge rules but is useful to get a first benchmark (and for pedagogical reasons too, the main goal for us was to learn). For that purpose, we use different dimensionality reduction techniques on the spectrograms and then test various standard machine learning techniques (KNN, SVM, random forests, gradient boosting trees) as well as basic neural networks.
 
@@ -36,6 +36,8 @@ Note that my co-learners, Quentin and Sylvain, have also tried alternatives anom
 All notebooks in this repo are mine and are organized as follows&nbsp;:
 - **Data exploration&nbsp;:**
     - [`ASD_dataviz.ipynb`](notebooks/ASD_dataviz.ipynb) : To analyse the dataset architecture, listen to sound clips, visualize and compare various spectrograms  of sounds.
+- **Preprocessing&nbsp;:**
+    - [`ASD_preprocessing_melspectro313x128.ipynb`](notebooks/ASD_preprocessing_melspectro313x128.ipynb) : To build the melspectrograms stored in the folder `data/Features/melspec_313_128`
 - **Supervised classification of normal/anomalous sounds**&nbsp;:
     - [`ASD_supervised_clf_sounds.ipynb`](notebooks/ASD_supervised_clf_sounds.ipynb) : Various techniques of dimensionality reduction and various classifiers (KNN, SVM, random forests, gradient boosting trees)  have been tested.
     - [`ASD_supervised_clf_sounds_DL.ipynb`](notebooks/ASD_supervised_clf_sounds_DL.ipynb) : Same with basic neural networks. Results are very bad. The notebook has been written at the early stage of the training, with no hindsight on deep learning techniques, and can be mostly ignored.
