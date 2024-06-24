@@ -56,7 +56,7 @@ The *unsupervised* classification task of normal/anomalous sounds is (as expecte
 
 :trophy: Visit the [challenge results webpage](https://dcase.community/challenge2022/task-low-complexity-acoustic-scene-classification-results) for more ideas.
 
-## Reports (in french, written my co-learners)
+## Reports (in french, written with my co-learners)
 Project report : [ASD_report.pdf](reports/ASD_report.pdf)  
 Defense slides : [ASD_slides.pdf](reports/ASD_slides.pdf)  
 
